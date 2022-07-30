@@ -1,0 +1,84 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pykadex-fe/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/pykadex-fe",
+        "index": "apps/pykadex-fe/src/index.html",
+        "baseHref": "/",
+        "main": "apps/pykadex-fe/src/main.tsx",
+        "polyfills": "apps/pykadex-fe/src/polyfills.ts",
+        "tsConfig": "apps/pykadex-fe/tsconfig.app.json",
+        "assets": [
+          "apps/pykadex-fe/src/favicon.ico",
+          "apps/pykadex-fe/src/assets"
+        ],
+        "styles": ["apps/pykadex-fe/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/pykadex-fe/src/environments/environment.ts",
+              "with": "apps/pykadex-fe/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pykadex-fe:build",
+        "hmr": true,
+        "port": 8080
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pykadex-fe:build:development"
+        },
+        "production": {
+          "buildTarget": "pykadex-fe:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/pykadex-fe/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/pykadex-fe"],
+      "options": {
+        "jestConfig": "apps/pykadex-fe/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

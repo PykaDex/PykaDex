@@ -2,7 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "server": "apps/server",
-    "server-e2e": "apps/server-e2e"
+    "pykadex-fe": "apps/pykadex-fe",
+    "pykadex-fe-e2e": "apps/pykadex-fe-e2e",
+    "server": "apps/server"
   }
 }
