@@ -1,9 +1,9 @@
 const dirName = 'http://localhost:3333/';
 
 const loadingImages = [
-  { id: 0, src: dirName + 'loading/charmander.svg', description: 'Charmander' },
-  { id: 1, src: dirName + 'loading/pikachu.svg', description: 'Pikachu' },
-  { id: 2, src: dirName + 'loading/squirtle.svg', description: 'Squirtle' },
+  { id: 0, src: dirName + 'pykadex/loading/charmander.svg', description: 'Charmander' },
+  { id: 1, src: dirName + 'pykadex/loading/pikachu.svg', description: 'Pikachu' },
+  { id: 2, src: dirName + 'pykadex/loading/squirtle.svg', description: 'Squirtle' },
 ];
 
 const buffer = 3;

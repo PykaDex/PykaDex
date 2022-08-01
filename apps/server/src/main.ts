@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(routes);
 
 
-app.use("/loading", express.static(__dirname + '/assets/loading/images'));
+app.use("/pykadex/loading", express.static(__dirname + '/assets/loading/images'));
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
