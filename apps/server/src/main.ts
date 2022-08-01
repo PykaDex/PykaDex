@@ -1,12 +1,18 @@
 
 import express from 'express';
-
+import cors from "cors"
 import routes from "./app/routes/index.routes"
 
 const app = express();
 
+app.use(cors({
+  origin: "http://localhost:8080"
+}))
 app.use(express.json());
 app.use(routes);
+
+
+app.use("/loading", express.static(__dirname + '/assets/loading/images'));
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {

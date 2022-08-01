@@ -1,9 +1,9 @@
-const dirName = 'http://localhost:3333/';
+const dirName = 'src/assets/loading/images';
 
 const loadingImages = [
-  { id: 0, src: dirName + 'loading/charmander.svg', description: 'Charmander' },
-  { id: 1, src: dirName + 'loading/pikachu.svg', description: 'Pikachu' },
-  { id: 2, src: dirName + 'loading/squirtle.svg', description: 'Squirtle' },
+  { id: 0, src: dirName + '/charmander.svg', description: 'Charmander' },
+  { id: 1, src: dirName + '/pikachu.svg', description: 'Pikachu' },
+  { id: 2, src: dirName + '/squirtle.svg', description: 'Squirtle' },
 ];
 
 const buffer = 3;
@@ -23,9 +23,9 @@ function randomIntFromInterval(min, max, buffer) {
     if (!tempArray.includes(randomNumber)) {
       tempArray.push(randomNumber);
     }
-    
+    console.log(tempArray);
   }
   return tempArray;
 }
 
-export default getLoading;
+console.log(getLoading());

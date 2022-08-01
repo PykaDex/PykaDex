@@ -7,6 +7,6 @@ const router =  Router()
 
 router.route('/pykadex')
 .get(GET_Loading)
-.post(multer.single('image'), POST_Image )
+// .post(multer.single('image'), POST_Image ) // just remove if not working 
 
 export default router
