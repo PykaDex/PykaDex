@@ -10,8 +10,8 @@ const buffer = 3;
 
 function getLoading() {
   const loadingIndex = randomIntFromInterval(0, loadingImages.length, buffer);
-
-  return loadingIndex.map((index) => loadingImages[index]);
+  const pokeArr = loadingIndex.map((index) => loadingImages[index]);
+  return pokeArr;
 }
 
 function randomIntFromInterval(min, max, buffer) {
@@ -23,7 +23,6 @@ function randomIntFromInterval(min, max, buffer) {
     if (!tempArray.includes(randomNumber)) {
       tempArray.push(randomNumber);
     }
-    console.log(tempArray);
   }
   return tempArray;
 }

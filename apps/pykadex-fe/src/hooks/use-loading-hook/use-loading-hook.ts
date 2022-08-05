@@ -20,7 +20,7 @@ export function useLoadingHook(): Iloading {
 
   useEffect(() => {
     fetchData();
-    console.log(loading)
+    // console.log(loading)
   }, [])
 
   return loading
