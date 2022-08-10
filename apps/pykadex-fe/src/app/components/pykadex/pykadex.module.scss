@@ -1,0 +1,59 @@
+@font-face {
+    font-family: Ailerons;
+    src: url("../../../assets/fonts/Ailerons-Regular.otf") format("opentype");
+}
+
+.container {
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    background-image: url("../../../assets/images/background.png");
+    background-repeat: repeat;
+    
+    
+}
+
+.logoBackground {
+    width: 80vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBackground {
+    width: 70vw;
+    height: 100vh;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+p {
+    margin-top: 1rem;
+
+    font-family: Ailerons;
+
+    font-size: 4rem;
+    color: rgb(202, 202, 202);
+}
+
+.arrow {
+    margin-top: 1rem;
+    
+    fill: rgb(202, 202, 202);
+    height: 3rem;
+    width: 12rem;   
+}

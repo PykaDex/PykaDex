@@ -20,7 +20,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/pykadex-fe-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/pykadex-fe-e2e/**/*.js"]
       }
     }
   },

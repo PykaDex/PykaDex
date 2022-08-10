@@ -12,11 +12,11 @@
         "outputPath": "dist/apps/pykadex-fe",
         "index": "apps/pykadex-fe/src/index.html",
         "baseHref": "/",
-        "main": "apps/pykadex-fe/src/main.tsx",
-        "polyfills": "apps/pykadex-fe/src/polyfills.ts",
+        "main": "apps/pykadex-fe/src/main.js",
+        "polyfills": "apps/pykadex-fe/src/polyfills.js",
         "tsConfig": "apps/pykadex-fe/tsconfig.app.json",
         "assets": [
-          "apps/pykadex-fe/src/favicon.ico",
+          "apps/pykadex-fe/src/favicon.png",
           "apps/pykadex-fe/src/assets"
         ],
         "styles": ["apps/pykadex-fe/src/styles.scss"],
@@ -33,8 +33,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/pykadex-fe/src/environments/environment.ts",
-              "with": "apps/pykadex-fe/src/environments/environment.prod.ts"
+              "replace": "apps/pykadex-fe/src/environments/environment.js",
+              "with": "apps/pykadex-fe/src/environments/environment.prod.js"
             }
           ],
           "optimization": true,
@@ -75,7 +75,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/apps/pykadex-fe"],
       "options": {
-        "jestConfig": "apps/pykadex-fe/jest.config.ts",
+        "jestConfig": "apps/pykadex-fe/jest.config.js",
         "passWithNoTests": true
       }
     }
