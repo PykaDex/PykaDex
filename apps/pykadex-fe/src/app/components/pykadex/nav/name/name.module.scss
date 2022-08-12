@@ -1,0 +1,25 @@
+.leftNav {
+    width: 49.5%;
+    height: 6rem;
+
+    color:  rgb(63, 62, 62);
+    background-color: rgb(164, 164, 165);
+
+ 
+    font-size: 3rem;
+    text-decoration: none;
+    text-align: center;
+    line-height: 6rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 85% 50%, 70% 100%, 0 100%);
+
+    transition: 1s;
+
+    &:hover {
+        background-color: rgb(58, 107, 119);
+    }
+}

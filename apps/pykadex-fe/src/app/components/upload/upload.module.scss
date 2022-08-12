@@ -1,7 +1,103 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.container {
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: min-content;
+    width: 100%;
+}
+
+.ctnContainer {
+    width: 20rem;
+
+    display: flex;
+    justify-content: space-between  ;
+
+    
+}
+
+.upload {
+    display: none;
+}
+
+
+.ctnLeft {
+    width: 49.5%;
+    height: 3rem;
+
+    background-color: rgb(164, 164, 165);
+
+    border-radius: 0.25rem;
+    padding: 1rem;
+
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 0rem 3rem;
+    font-weight: 600;
+
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 85% 50%, 70% 100%, 0 100%);   
+    
+    transition: 1s;
+
+    &:hover {
+        background-color:  rgb(58, 107, 119);
+    }
+   
+}
+
+.ctnRight {
+    width: 49.5%;
+    height: 3rem;
+
+    background-color: rgb(164, 164, 165);
+
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0rem 1rem;
+
+    text-align: right;
+    font-size: 0.95rem;    
+    line-height: 3rem;
+
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%, 15% 50%, 0 50%);
+
+    transition: 1s;
+
+    &:hover {
+        background-color:  rgb(196, 62, 62);
+    }
+}
+
+.submit {
+    width: 20rem;
+    height: 3rem;
+
+    margin-top: 0.25rem;
+
+    background-color: rgb(164, 164, 165);
+
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0rem 1rem;
+
+    text-align: center;
+    font-size: 0.95rem;    
+    line-height: 3rem;
+
+    transition: 1s;
+
+    &:hover {
+        background-color: rgb(58, 119, 61);
+    }
+}

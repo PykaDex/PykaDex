@@ -2,10 +2,10 @@ import styles from './loading.module.scss';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-import useLoadingHook from '../../hooks/use-loading/use-loading';
+import useLoadingTransitionHook from '../../hooks/use-loading-transition/use-loading-transition';
 
 export function Loading(props) {
-  const isLoading = useLoadingHook();
+  const LoadingTransition = useLoadingTransitionHook();
 
   function classAllocater(index) {
     if (index !== 0) {
@@ -15,7 +15,7 @@ export function Loading(props) {
 
   return (
     <div className={styles['container']}>
-      {isLoading.images?.map((item, index) => {
+      {LoadingTransition.images?.map((item, index) => {
         return (
           <img
             key={item.id}
