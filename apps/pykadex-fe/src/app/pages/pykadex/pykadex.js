@@ -1,14 +1,7 @@
 import styles from './pykadex.module.scss';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-
-/* eslint-disable */
-import {
-  clearFileName,
-  toggleIsSent,
-  toggleIsUploaded,
-} from 'apps/pykadex-fe/src/slices/uploadData';
-/* eslint-enable */
+import { useSelector } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 import {
   PykadexLogo,
@@ -19,30 +12,22 @@ import {
   Name,
   Docs,
   Cancel,
-} from '../index';
+} from './barrels/components';
 
-export function Pykadex(props) {
-  const dispatch = useDispatch();
+export function Pykadex() {
   const upload = useSelector((state) => state.uploadData);
-
-  const dispatchCancel = (event) => {
-    event.preventDefault(event);
-    dispatch(clearFileName());
-    dispatch(toggleIsSent(false));
-    dispatch(toggleIsUploaded(false));
-  };
 
   return (
     <div className={styles['container']}>
-      <div className={styles.logoContainer}>
+      <section className={styles.logoContainer}>
         <PykadexLogo />
-      </div>
+      </section>
 
-      <div className={styles.mainContainer}>
+      <section className={styles.mainContainer}>
         <div className={styles.MainNav}>
           {upload.isLoaded ? <Name /> : null}
 
-          {!upload.isLoaded && !upload.isUploaded ? <Docs /> : null}
+          {!upload.isSent || !upload.isLoaded ? <Docs /> : null}
 
           {(upload.isUploaded && upload.isLoaded) ||
           (upload.isUploaded && upload.isSent) ? (
@@ -50,13 +35,14 @@ export function Pykadex(props) {
           ) : null}
         </div>
 
-        <div className={styles.loadReturn}>
+        <div className={styles.UploadReturn}>
           {!upload.isSent && !upload.isLoaded ? <UploadDisplay /> : null}
           {upload.isSent && !upload.isLoaded ? <Loading /> : null}
           {upload.isSent && upload.isLoaded ? <Return /> : null}
         </div>
+
         {upload.isSent && upload.isUploaded ? null : <Upload />}
-      </div>
+      </section>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {
   clearFileName,
   toggleIsSent,
   toggleIsUploaded,
-} from 'apps/pykadex-fe/src/slices/uploadData';
+} from 'apps/pykadex-fe/src/slices/uploadSlice';
 /* eslint-enable */
 
 export function Cancel(props) {

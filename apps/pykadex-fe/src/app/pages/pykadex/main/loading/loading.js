@@ -1,10 +1,8 @@
 import styles from './loading.module.scss';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 
-import useLoadingTransitionHook from '../../hooks/use-loading-transition/use-loading-transition';
+import { useLoadingTransitionHook } from '../../barrels/hooks';
 
-export function Loading(props) {
+export function Loading() {
   const LoadingTransition = useLoadingTransitionHook();
 
   function classAllocater(index) {

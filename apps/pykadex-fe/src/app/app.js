@@ -2,8 +2,8 @@ import styles from './app.module.scss';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Pykadex from './components/pykadex/pykadex';
-import Documentation from './components/documentation/documentation';
+import Pykadex from './pages/pykadex/pykadex';
+import Documentation from './pages/documentation/documentation';
 
 export function App() {
   return (

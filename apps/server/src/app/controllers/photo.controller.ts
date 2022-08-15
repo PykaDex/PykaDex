@@ -28,11 +28,13 @@ export async function POST_Image(req: MulterRequest, res:Response) {
     });
 
     runPy.then(function (pyId) {
-        res.send(getPokemon(pyId))
+
+        setTimeout(()=> { res.send(getPokemon(pyId))},3000)
+       
+
+        console.log(pyId);
+        
     });
-    
-    res.json({
-        message: "photo successfully saved",
-    })
+
 }
 

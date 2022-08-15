@@ -11,7 +11,6 @@ export function useLoadingTransitionHook() {
 
   useEffect(() => {
     fetchData();
-    console.log(loadingTransition);
   }, []);
 
   return loadingTransition;

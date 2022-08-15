@@ -1,6 +1,7 @@
 import styles from './upload.module.scss';
 
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 /* eslint-disable */
 import {
@@ -8,14 +9,13 @@ import {
   clearFileName,
   toggleIsSent,
   toggleIsUploaded,
-} from 'apps/pykadex-fe/src/slices/uploadData';
+} from 'apps/pykadex-fe/src/slices/uploadSlice';
 /* eslint-enable */
-import { useState } from 'react';
 
 export function Upload(props) {
   const dispatch = useDispatch();
-
-  const [image, setImage] = useState();
+  const upload = useSelector((state) => state.uploadData);
+  const [file, setFile] = useState(null);
 
   const clearForm = (event) => {
     event.preventDefault();
@@ -23,13 +23,29 @@ export function Upload(props) {
     dispatch(clearFileName());
   };
 
-  const dispatchUpload = (fileName) => {
-    dispatch(updateFileName(fileName));
+  const dispatchUpload = (file) => {
+    setFile(file);
+    dispatch(updateFileName(file.name));
     dispatch(toggleIsUploaded(true));
   };
 
   const dispatchSubmit = (event) => {
     event.preventDefault(event);
+    if (!upload.fileName) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', file);
+    fetch('http://localhost:3333/pykadex', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+
     dispatch(toggleIsSent(true));
   };
 
@@ -42,17 +58,23 @@ export function Upload(props) {
           accept="image/*"
           id="imageUpload"
           onChange={(e) => {
-            dispatchUpload(e.target.files[0].name);
+            dispatchUpload(e.target.files[0]);
           }}
         ></input>
 
         <div className={styles.ctnContainer}>
-          <label className={styles.ctnLeft} htmlFor="imageUpload">
+          <label
+            className={styles.ctnLeft}
+            htmlFor="imageUpload"
+            ref={props.uplaodUpload}
+          >
             Select file
           </label>
+
           <button
             className={styles.ctnRight}
             onClick={(event) => clearForm(event)}
+            ref={props.uploadClear}
           >
             clear
           </button>

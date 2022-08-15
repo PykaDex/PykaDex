@@ -17,12 +17,19 @@
     }
 
     .arrow {
-    margin-top: 1rem;
-    
-    fill: rgb(202, 202, 202);
-    height: 3rem;
-    width: 12rem;   
-}
+        margin-top: 1rem;
+        
+        fill: rgb(202, 202, 202);
+        height: 3rem;
+        width: 12rem;  
+    } 
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 

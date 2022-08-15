@@ -1,12 +1,17 @@
 import { Router } from 'express';
+
 import multer from 'multer';
+import { MulterRequest } from '../../model/Photo';
+const upload = multer({ dest: 'uploads/' })
 
 import { GET_Loading, POST_Image } from '../controllers/photo.controller';
 
+
 const router =  Router()
 
-router.route('/pykadex')
-.get(GET_Loading)
-// .post(multer.single('image'), POST_Image ) // just remove if not working 
+router.get('/pykadex', GET_Loading)
+router.post('/pykadex', upload.single('image'), POST_Image)
+
+
 
 export default router
