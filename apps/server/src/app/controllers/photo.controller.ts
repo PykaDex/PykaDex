@@ -11,8 +11,9 @@ export async function GET_Loading(req: Request, res:Response) {
 }
 
 export async function POST_Image(req: MulterRequest, res:Response) {
-    const image = req.file;
-
+    const imageData = req.file
+    console.log("image data", imageData)
+    
     const runPy = new Promise(function (success, failure) {
         const pythonProcess = spawn('python', [
             '/Users/harry/pykadex/apps/server/src/app/controllers/mockPy.py', //arguments added here 
@@ -28,12 +29,7 @@ export async function POST_Image(req: MulterRequest, res:Response) {
     });
 
     runPy.then(function (pyId) {
-
-        setTimeout(()=> { res.send(getPokemon(pyId))},3000)
-       
-
-        console.log(pyId);
-        
+        setTimeout(()=> { res.send(getPokemon(pyId))},2000)        
     });
 
 }

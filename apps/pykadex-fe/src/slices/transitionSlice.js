@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const transition = createSlice({
-  name: 'uploadData',
+  name: 'transition',
   initialState,
   reducers: {
     toggleDocs: (state, action) => {

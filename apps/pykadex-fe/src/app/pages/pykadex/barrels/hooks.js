@@ -1,2 +1,2 @@
 export * from './../../../hooks/use-loading-transition/use-loading-transition';
-export * from './../../../hooks/use-uploading-data/use-uploading-data';
+// export * as useFetchDataHook from '../../../hooks/use-fetch-data/use-fetch-data';

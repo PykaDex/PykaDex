@@ -1,7 +1,5 @@
 import styles from './pykadex.module.scss';
 import { useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 
 import {
   PykadexLogo,
@@ -12,6 +10,9 @@ import {
   Name,
   Docs,
   Cancel,
+  Description,
+  Type,
+  Stats,
 } from './barrels/components';
 
 export function Pykadex() {
@@ -35,10 +36,18 @@ export function Pykadex() {
           ) : null}
         </div>
 
-        <div className={styles.UploadReturn}>
-          {!upload.isSent && !upload.isLoaded ? <UploadDisplay /> : null}
-          {upload.isSent && !upload.isLoaded ? <Loading /> : null}
-          {upload.isSent && upload.isLoaded ? <Return /> : null}
+        <div className={styles.mainContent}>
+          <div className={styles.UploadReturn}>
+            {!upload.isSent && !upload.isLoaded ? <UploadDisplay /> : null}
+            {upload.isSent && !upload.isLoaded ? <Loading /> : null}
+
+            {upload.isSent && upload.isLoaded ? <Return /> : null}
+          </div>
+          <div className={styles.desTyp}>
+            {upload.isSent && upload.isLoaded ? <Description /> : null}
+            {upload.isSent && upload.isLoaded ? <Type /> : null}
+          </div>
+          {upload.isSent && upload.isLoaded ? <Stats /> : null}
         </div>
 
         {upload.isSent && upload.isUploaded ? null : <Upload />}

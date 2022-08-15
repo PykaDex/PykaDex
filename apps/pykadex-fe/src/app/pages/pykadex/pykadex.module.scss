@@ -44,11 +44,22 @@
     width: 100vw;
 }
 
-.UploadReturn {
-    margin-top: 10rem;
+.mainContent {
+    width: 90%;
 
+    padding-top: 10em;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.UploadReturn {
     height: 20rem;
     width: 20rem;
+
+    margin: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -58,4 +69,9 @@
     border-radius: 1rem;
 
     background-color: rgb(245, 245, 245);
+}
+
+.desTyp {
+    display: flex;
+    flex-direction: column;
 }

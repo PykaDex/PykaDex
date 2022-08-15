@@ -1,22 +1,34 @@
 import styles from './cancel.module.scss';
-import { useSelector, useDispatch } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
+
 /* eslint-disable */
 import {
   clearFileName,
   toggleIsSent,
   toggleIsUploaded,
+  toggleIsLoaded,
 } from 'apps/pykadex-fe/src/slices/uploadSlice';
+
+import { resetReturnData } from 'apps/pykadex-fe/src/slices/returnDataSlice';
 /* eslint-enable */
+
+import { fetchContext } from '../../../../contexts/use-fetch-data/fetch-data-context';
+import { useContext } from 'react';
 
 export function Cancel(props) {
   const dispatch = useDispatch();
-  const upload = useSelector((state) => state.uploadData);
+  const { cancelSubmission } = useContext(fetchContext);
 
   const dispatchCancel = (event) => {
     event.preventDefault(event);
+    cancelSubmission();
+
     dispatch(clearFileName());
     dispatch(toggleIsSent(false));
     dispatch(toggleIsUploaded(false));
+    dispatch(toggleIsLoaded(false));
+    dispatch(resetReturnData());
   };
   return (
     <div className={styles['container']}>
@@ -27,7 +39,7 @@ export function Cancel(props) {
           dispatchCancel(event);
         }}
       >
-        cancel
+        Clear
       </button>
     </div>
   );

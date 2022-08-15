@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
-import useUploadingData from './use-uploading-data';
+import useUploadingData from './fetch-data-context';
 describe('useUploadingData', () => {
   it('should render successfully', () => {
     const { result } = renderHook(() => useUploadingData());

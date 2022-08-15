@@ -12,6 +12,6 @@ const router =  Router()
 router.get('/pykadex', GET_Loading)
 router.post('/pykadex', upload.single('image'), POST_Image)
 
-
+ 
 
 export default router

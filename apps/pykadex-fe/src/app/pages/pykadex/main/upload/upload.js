@@ -1,21 +1,22 @@
 import styles from './upload.module.scss';
-
-import { useState } from 'react';
+import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 /* eslint-disable */
 import {
   updateFileName,
   clearFileName,
-  toggleIsSent,
   toggleIsUploaded,
 } from 'apps/pykadex-fe/src/slices/uploadSlice';
 /* eslint-enable */
 
+import { fetchContext } from '../../../../contexts/use-fetch-data/fetch-data-context';
+
 export function Upload(props) {
   const dispatch = useDispatch();
   const upload = useSelector((state) => state.uploadData);
-  const [file, setFile] = useState(null);
+
+  const { handleSubmit, setFile } = useContext(fetchContext);
 
   const clearForm = (event) => {
     event.preventDefault();
@@ -30,23 +31,11 @@ export function Upload(props) {
   };
 
   const dispatchSubmit = (event) => {
-    event.preventDefault(event);
+    event.preventDefault();
     if (!upload.fileName) {
       return;
     }
-
-    const formData = new FormData();
-    formData.append('image', file);
-    fetch('http://localhost:3333/pykadex', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-
-    dispatch(toggleIsSent(true));
+    handleSubmit(event);
   };
 
   return (
@@ -57,6 +46,7 @@ export function Upload(props) {
           type="file"
           accept="image/*"
           id="imageUpload"
+          encType="multipart/form-data"
           onChange={(e) => {
             dispatchUpload(e.target.files[0]);
           }}
@@ -90,4 +80,5 @@ export function Upload(props) {
     </div>
   );
 }
+
 export default Upload;
