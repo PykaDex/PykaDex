@@ -26,8 +26,12 @@ export function Upload(props) {
 
   const dispatchUpload = (file) => {
     setFile(file);
-    dispatch(updateFileName(file.name));
-    dispatch(toggleIsUploaded(true));
+    try {
+      dispatch(updateFileName(file.name));
+      dispatch(toggleIsUploaded(true));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const dispatchSubmit = (event) => {

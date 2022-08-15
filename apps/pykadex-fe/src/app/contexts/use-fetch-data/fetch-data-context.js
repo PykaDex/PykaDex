@@ -43,7 +43,7 @@ export function FetchProvider({ children }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('use context', data);
+        // console.log('use context', data);
         dispatch(toggleIsLoaded(true));
 
         dispatch(updateId(data.id));
