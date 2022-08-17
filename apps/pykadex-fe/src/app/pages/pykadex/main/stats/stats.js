@@ -1,7 +1,6 @@
 import styles from './stats.module.scss';
 
 import { useSelector } from 'react-redux';
-
 import StatsBar from './stats-bar/stats-bar';
 
 export function Stats(props) {

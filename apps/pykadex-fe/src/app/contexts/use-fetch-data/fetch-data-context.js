@@ -14,6 +14,7 @@ import {
   updateStats,
   updateType,
   updateDescription,
+  updateWeakness,
 } from 'apps/pykadex-fe/src/slices/returnDataSlice';
 /* eslint-enable */
 
@@ -52,6 +53,7 @@ export function FetchProvider({ children }) {
         dispatch(updateStats(data.base));
         dispatch(updateDescription(data.description));
         dispatch(updateType(data.type));
+        dispatch(updateWeakness(data.weakness));
       })
       .catch((error) => {
         console.log(`Failure:  ${error.message}`);

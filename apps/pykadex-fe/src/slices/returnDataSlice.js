@@ -15,6 +15,7 @@ const initialState = {
   stats: initialStats,
   description: '',
   type: [],
+  weakness: [],
 };
 
 export const returnData = createSlice({
@@ -39,6 +40,9 @@ export const returnData = createSlice({
     updateType: (state, action) => {
       state.type = action.payload;
     },
+    updateWeakness: (state, action) => {
+      state.weakness = action.payload;
+    },
     resetReturnData: (state, action) => {
       state.id = '';
       state.name = '';
@@ -58,5 +62,6 @@ export const {
   updateDescription,
   updateType,
   resetReturnData,
+  updateWeakness,
 } = returnData.actions;
 export default returnData.reducer;
