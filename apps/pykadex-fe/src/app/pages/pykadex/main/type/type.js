@@ -7,13 +7,26 @@ export function Type(props) {
 
   return (
     <div className={styles['container']}>
-      {data.type.map((element, x) => {
-        return (
-          <div className={styles[element]} key={x}>
-            {element}
-          </div>
-        );
-      })}
+      <p>Type</p>
+      <div className={styles.typeContainer}>
+        {data.type.map((element, x) => {
+          return (
+            <div className={`${styles[element]} ${styles.tag}`} key={x}>
+              {element}
+            </div>
+          );
+        })}
+      </div>
+      <p>Weakness</p>
+      <div className={styles.typeContainer}>
+        {data.weakness.map((element, x) => {
+          return (
+            <div className={`${styles[element]} ${styles.tag}`} key={x}>
+              {element}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

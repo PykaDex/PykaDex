@@ -1,13 +1,29 @@
 .container {
     margin: 0rem 1rem;
 
+    width: 20rem;
+    height: min-content;
+
     display: flex;
-    
-    div {
-        padding: 0.3rem;
-        margin-right: 1rem;
-        
+    flex-direction: column;
+
+    p {
         font-size: 1.5rem;
+    }
+    
+
+    .typeContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .tag {
+        padding: 0.3rem;
+        margin: 0.4rem 0.8rem 0.4rem 0rem;
+        
+        font-size: 1.2rem;
         border-radius: 0.5rem;
        
     }
