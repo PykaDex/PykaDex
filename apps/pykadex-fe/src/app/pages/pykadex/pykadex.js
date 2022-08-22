@@ -1,5 +1,6 @@
 import styles from './pykadex.module.scss';
 import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 import {
   PykadexLogo,
@@ -17,6 +18,13 @@ import {
 
 export function Pykadex() {
   const upload = useSelector((state) => state.uploadData);
+  const [loadingActive, setLoadingActive] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingActive(false);
+    }, 4000);
+  });
 
   return (
     <div className={styles['container']}>
@@ -24,34 +32,36 @@ export function Pykadex() {
         <PykadexLogo />
       </section>
 
-      <section className={styles.mainContainer}>
-        <div className={styles.MainNav}>
-          {upload.isLoaded ? <Name /> : null}
+      {!loadingActive ? (
+        <section className={styles.mainContainer}>
+          <div className={styles.MainNav}>
+            {upload.isLoaded ? <Name /> : null}
 
-          {!upload.isSent || !upload.isLoaded ? <Docs /> : null}
+            {!upload.isSent || !upload.isLoaded ? <Docs /> : null}
 
-          {(upload.isUploaded && upload.isLoaded) ||
-          (upload.isUploaded && upload.isSent) ? (
-            <Cancel />
-          ) : null}
-        </div>
-
-        <div className={styles.mainContent}>
-          <div className={styles.UploadReturn}>
-            {!upload.isSent && !upload.isLoaded ? <UploadDisplay /> : null}
-            {upload.isSent && !upload.isLoaded ? <Loading /> : null}
-
-            {upload.isSent && upload.isLoaded ? <Return /> : null}
+            {(upload.isUploaded && upload.isLoaded) ||
+            (upload.isUploaded && upload.isSent) ? (
+              <Cancel />
+            ) : null}
           </div>
-          <div className={styles.desTyp}>
-            {upload.isSent && upload.isLoaded ? <Description /> : null}
-            {upload.isSent && upload.isLoaded ? <Type /> : null}
-          </div>
-          {upload.isSent && upload.isLoaded ? <Stats /> : null}
-        </div>
 
-        {upload.isSent && upload.isUploaded ? null : <Upload />}
-      </section>
+          <div className={styles.mainContent}>
+            <div className={styles.UploadReturn}>
+              {!upload.isSent && !upload.isLoaded ? <UploadDisplay /> : null}
+              {upload.isSent && !upload.isLoaded ? <Loading /> : null}
+
+              {upload.isSent && upload.isLoaded ? <Return /> : null}
+            </div>
+            <div className={styles.desTyp}>
+              {upload.isSent && upload.isLoaded ? <Description /> : null}
+              {upload.isSent && upload.isLoaded ? <Type /> : null}
+            </div>
+            {upload.isSent && upload.isLoaded ? <Stats /> : null}
+          </div>
+
+          {upload.isSent && upload.isUploaded ? null : <Upload />}
+        </section>
+      ) : null}
     </div>
   );
 }

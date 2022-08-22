@@ -14,16 +14,16 @@ export function PykadexLogo() {
       1
     );
     gsap.fromTo(
-      logo.current,
+      logoText.current,
       { autoAlpha: 0 },
-      { autoAlpha: 1, duration: 4 },
+      { autoAlpha: 1, duration: 2 },
       1
     );
     gsap.fromTo(
       logoText.current,
       { autoAlpha: 0 },
-      { autoAlpha: 1, duration: 4 },
-      3
+      { autoAlpha: 1, duration: 3 },
+      1
     );
     gsap.fromTo(logoText.current, { y: 500 }, { y: 0, duration: 1 }, 3);
   });
